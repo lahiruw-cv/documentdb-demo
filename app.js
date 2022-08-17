@@ -11,3 +11,17 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Demo app is up and listening to port ${port}`);
 });
+
+var MongoClient = require('mongodb').MongoClient,fs = require('fs');
+var ca = [fs.readFileSync("rds-combined-ca-bundle.pem")];
+var connection_string = "mongodb://administrator:1234567La8@modjoul-rfid-cluster.cluster-cqwjen1x09yo.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false";
+
+MongoClient.connect(
+        connection_string, {
+            sslValidate: true,
+            sslCA: ca,
+            useNewUrlParser: true
+        },
+        function (err,client) {
+            console.log(err+" , "+ client);
+        });

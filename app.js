@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient
 //  and specify the read preference as secondary preferred
 
 var client = MongoClient.connect(
-'mongodb://<sample-user>:<password>@sample-cluster.node.us-east-1.docdb.amazonaws.com:27017/sample-database?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false',
+'mongodb://administrator:1234567La8@modjoul-rfid-cluster.cluster-cqwjen1x09yo.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false',
 {
   tlsCAFile: `rds-combined-ca-bundle.pem` //Specify the DocDB; cert
 },
